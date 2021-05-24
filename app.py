@@ -35,7 +35,7 @@ def api_response(request):
         print(e)
         error = {"error" : "Something went wrong!! Try again."}
         return error
-
+#####
 @app.route("/",methods=["GET", "POST"])
 def index():
     if request.method == "POST":
