@@ -38,11 +38,31 @@ def calculation():
         try:
             if request.form:
                 data_req = dict(request.form)
-                mass = data_req['mass']
-                density = data_req['density']
-                diameter = data_req['diameter']
-                radius = float(diameter) / 2
-                vol = float(mass) / float(density)
+
+                radio_mass_options = data_req['options']
+                radio_diameter_options = data_req['diameter']
+
+                mass = float(data_req['mass'])
+                density = float(data_req['density'])
+                diameter = float(data_req['diameterradius'])
+
+                if radio_mass_options == 'microgram':
+                    mass = mass * 0.000001
+                elif radio_mass_options == 'milligram':
+                    mass = mass * 0.001
+                else:
+                    mass = mass
+
+                radius = diameter / 2
+                if radio_diameter_options == 'nanometer':
+                    radius = radius * 0.0000001
+                elif radio_diameter_options == 'micrometer':
+                    radius = radius * 0.0001
+                elif radio_diameter_options == 'millimeter':
+                    radius = radius * 0.1
+                else:
+                    radius = radius
+                vol = mass / density
                 vol_one_sphere = 4 / 3 * 3.14 * radius ** 3
                 response = vol / vol_one_sphere
                 return render_template("calculate.html", response=str(response))

@@ -47,14 +47,21 @@ WineQuality
                         <div class="form-group">
                             <label for="translation">
                                 <blockquote class="blockquote">
-                                    <p class="mb-2">Enter the details as indicated:</p>
+                                    <p class="mb-2">Enter the details as indicated:</p><br/>
                                 </blockquote>
                             </label>
+                            <input type="radio" name="options" id="microgram" value="microgram"> microgram </input>
+                            <input type="radio" name="options" id="milligram" value="milligram"> milligram </input>
+                            <input type="radio" name="options" id="gram" value="gram" checked> gram </input><br>
                             <textarea class="form-control" name="mass" rows="1"
-                                placeholder="Enter the mass"></textarea>
+                                placeholder="Enter the mass"></textarea><br>
                             <textarea class="form-control" name="density" rows="1"
-                                placeholder="Enter the density"></textarea>
-                            <textarea class="form-control" name="diameter" rows="1"
+                                placeholder="Enter the density"></textarea><br>
+                            <input type="radio" name="diameter" id="nanometer" value="nanometer"> nanometer </input>
+                            <input type="radio" name="diameter" id="micrometer" value="micrometer"> micrometer </input>
+                            <input type="radio" name="diameter" id="millimeter" value="millimeter"> millimeter </input>
+                            <input type="radio" name="diameter" id="centimeter" value="centimeter" checked> centimeter </input><br>
+                            <textarea class="form-control" name="diameterradius" rows="1"
                                 placeholder="Enter the diameter"></textarea>
                         </div>
                         <!-- Select output language here. -->
