@@ -4,13 +4,11 @@ on:
   push:
     branches:
     - calculation
-    - dev
-    - dev-mlflow
+
   pull_request:
     branches:
     - calculation
-    - dev
-    - dev-mlflow
+
 
 jobs:
   build:
