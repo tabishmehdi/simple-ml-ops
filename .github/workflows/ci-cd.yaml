@@ -3,10 +3,12 @@ name: Python application
 on:
   push:
     branches:
+    - calculation
     - dev
     - dev-mlflow
   pull_request:
     branches:
+    - calculation
     - dev
     - dev-mlflow
 
@@ -41,7 +43,7 @@ jobs:
       env:
         HEROKU_APP_TOKEN: ${{ secrets.HEROKU_APP_TOKEN }}
         HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-      if: github.ref == 'refs/heads/dev-mlflow' && job.status == 'success'
+      if: github.ref == 'refs/heads/calculation' && job.status == 'success'
       run: |
         git remote add heroku https://heroku:$HEROKU_APP_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git
-        git push heroku HEAD:dev -f
+        git push heroku HEAD:calculation -f
